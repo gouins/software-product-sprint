@@ -1,6 +1,6 @@
 # Google Software Product Sprint
 
-This repo contains Samir's portfolio and projects you'll work on throughout SPS.
+This repo contains Samir's portfolio and projects I'll work on throughout SPS.
 
 To get started:
 

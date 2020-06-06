@@ -1,9 +1,16 @@
+body {
+  background-color: darkgrey;
+}
+
 #content {
+color: white;
   margin-left: auto;
   margin-right: auto;
   width: 650px;
 }
 
 #greeting-container {
+font-family: verdana;
+  font-size: 20px;
   margin-top: 20px;
 }

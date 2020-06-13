@@ -13,12 +13,13 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
-
+import com.google.gson.Gson;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
@@ -26,7 +27,43 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("Samir");
+    // make greeting object
+    Greeting greeting = new Greeting("hi","salut","holla");
+    //convert to Json
+    String json = convertToJsonUsingGson(greeting);
+    response.setContentType("greeting/json;");
+    response.getWriter().println(json);
+  }
+
+  private String convertToJsonUsingGson(Greeting greeting) {
+    Gson gson = new Gson();
+    String json = gson.toJson(greeting);
+    return json;
+  }
+  class Greeting {
+
+// attributes
+  private final String eng;
+  private final String fre;
+  private final String spa;
+
+//constructor
+  public Greeting(String eng, String fre, String spa) {
+      this.eng = eng;
+      this.fre = fre;
+      this.spa = spa;
+  }
+
+  public String getEng() {
+    return eng;
+  }
+
+  public String getFre() {
+    return fre;
+  }
+
+  public String getSpa() {
+    return spa;
+  }
   }
 }

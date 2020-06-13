@@ -27,8 +27,19 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-async function getName() {
-  const response = await fetch('/data');
-  const name = await response.text();
-  document.getElementById('name-container').innerText = name;
+// fetch JSON string
+function getGreeting() {
+  fetch('/data').then(response => response.json()).then((greeting) => {
+    // samir is an array, not a string, so we have to
+    // reference its fields to create HTML content
+    const greetingList = document.getElementById('greeting-container');
+    greetingList.innerHTML = '';
+    // issue with append statements 
+    greetingList.appendChild(
+        document.createElement(greeting.eng));
+    greetingList.appendChild(
+        document.createElement(greeting.fre));
+    greetingList.appendChild(
+        document.createElement(greeting.spa));
+  });
 }

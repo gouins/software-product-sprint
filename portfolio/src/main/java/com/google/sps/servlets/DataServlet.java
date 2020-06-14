@@ -13,17 +13,21 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
+
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Arrays;
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/text")
@@ -31,46 +35,21 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // make greeting object
-  //  Greeting greeting = new Greeting("hi","salut","holla");
-    //convert to Json
-    //String json = convertToJsonUsingGson(greeting);
-        ArrayList<String> names = new ArrayList<String>();
-    response.setContentType("name/html;");
-    response.getWriter().println("hi");
-  }
+    Query query = new Query("Task").addSort("comments", SortDirection.DESCENDING);
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+    List<Task> tasks = new ArrayList<>();
 
-  private String convertToJsonUsingGson(Greeting greeting) {
-    Gson gson = new Gson();
-    String json = gson.toJson(greeting);
-    return json;
-  }
-  class Greeting {
+        for (Entity entity : results.asIterable()) {
+            String comment = (String) entity.getProperty("comments");
+                Task task = new Task(comment);
+                tasks.add(task);
+                }
+                Gson gson = new Gson();
+                response.setContentType("application/json;");
+                response.getWriter().println(gson.toJson(tasks));
+                }
 
-// attributes
-  private final String eng;
-  private final String fre;
-  private final String spa;
-
-//constructor
-  public Greeting(String eng, String fre, String spa) {
-      this.eng = eng;
-      this.fre = fre;
-      this.spa = spa;
-  }
-
-  public String getEng() {
-    return eng;
-  }
-
-  public String getFre() {
-    return fre;
-  }
-
-  public String getSpa() {
-    return spa;
-  }
-  }
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the input from the form.
@@ -90,4 +69,12 @@ public class DataServlet extends HttpServlet {
     }
     return value;
   }
+  
+  public final class Task {
+      private final String comment;
+      
+      public Task(String comment) {
+          this.comment = comment;
+  }
+}
 }

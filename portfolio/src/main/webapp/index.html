@@ -3,16 +3,15 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>My Portfolio</title>
+	<title>Samir's Portfolio</title>
 	<link rel="stylesheet" href="style.css">
 	<script src="script.js"></script>
 </head>
-
+<h1 class="ml2">Hello</h1>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <body>
 	<div id="content">
-		<h1 class="ml16">Hello</h1>
-		<h1 style="text-align:center;">Samir's Portfolio</h1>
-		<p>Hey! This is my portfolio.</p>
+		<h1 style="text-align:center;">Welcome to my portfolio</h1>
 		<p> I'm from Montreal, Canada and I'm studying Neuroscience at McGill. I like travelling a lot and have found
 			that
 			photos are the best souvenirs. Here are two that I've taken recently: </p>
@@ -37,22 +36,29 @@
 		<p> Depsite the tumultous protests below, the mountain parks in Hong Kong retain a quiet air of peace. This
 			scene
 			captures a couple walking their dog in the morning haze. </p>
-			<br>
-			<button onclick="getName()">Get my name!</button>
-			<br>
-			<div id="name-container"></div>
-			<br>
-			<b>Click here to get a random oxymoron:</b>
-			<button onclick="addRandomGreeting()">CLICK</button>
-			<div id="greeting-container"></div>
-			<ul>
-				<b> Check me out here: </b>
-				<li><a href="https://github.com/gouins/software-product-sprint">GitHub</a> </li>
-				<li><a href="https://www.linkedin.com/in/samir-gouin-2013781a9/">LinkedIn</a></li>
-				<li><a href="https://www.instagram.com/gouins/">Instagram</a></li><br>
-			<p style="text-align:center;">Made by Samir</p>
-		</ul>
+		<br>
+		<button onclick="getGreeting()">Greeting</button>
+		<br>
+		<ul id="r">
+	</div>
+	<ul id="greeting-container"></ul>
+	<br>
+	<b>Click here to get a random oxymoron:</b>
+	<button onclick="addRandomGreeting()">CLICK</button>
+	<div id="greeting-container"></div>
+
+    <form action="/text" method="POST">
+      <p>Enter a comment:</p>
+      <textarea name="text-input">type here</textarea>
+      <br>
+      <input type="submit" />
+    </form>
+	<b> Check me out here: </b>
+	<li><a href="https://github.com/gouins/software-product-sprint">GitHub</a> </li>
+	<li><a href="https://www.linkedin.com/in/samir-gouin-2013781a9/">LinkedIn</a></li>
+	<li><a href="https://www.instagram.com/gouins/">Instagram</a></li><br>
+	<p style="text-align:center;">Made by Samir</p>
+	</ul>
 	</div>
 </body>
-
 </html>

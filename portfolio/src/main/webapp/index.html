@@ -1,64 +1,38 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="UTF-8">
 	<title>Samir's Portfolio</title>
 	<link rel="stylesheet" href="style.css">
 	<script src="script.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+    $(function() {
+    $( document ).tooltip({
+        items: "[data-tooltip]",
+        content: function() {
+        var element = $( this );  
+        var text = element.text();
+        var url = element.attr('data-tooltip');
+        return "<img class='map' alt='" + text +
+         "' src='" + url + "'>";
+    }
+  });
+});
+  </script>
 </head>
-<h1 class="ml2">Hello</h1>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="ml2" style="text-align:center;">Hello</h1>
 <body>
-	<div id="content">
-		<h1 style="text-align:center;">Welcome to my portfolio</h1>
-		<p> I'm from Montreal, Canada and I'm studying Neuroscience at McGill. I like travelling a lot and have found
-			that
-			photos are the best souvenirs. Here are two that I've taken recently: </p>
-		<b> Candid </b>
-		<figure>
-			<img src="images/samir_gouin_3.jpg" alt="My image" style="width:250px;height:250px;">
-			<figcaption> Taken in 2019 in Ireland </figcaption>
-		</figure>
-		<p>The frozen stare of the sheep exudes palpable fear. As I walked in the Irish countryside, flocks of sheep
-			would run
-			to the gates in frenzy, greeting myself and any passerby. However, this sheep seemed to shy away from the
-			camera,
-			posing for a brief second before dissapearing in the nearby hedges. The yellow flowers add a speckle of
-			colour and
-			brightness to the otherwise drab and overcast scene.</p>
-		<br>
-		<b> Peace on the Mountain </b>
-		<figure>
-			<img src="images/samir_gouin-1.jpg" alt="My image" style="width:250px;height:380px;">
-			<figcaption> Taken in 2019 in Hong Kong </figcaption>
-		</figure>
-		<p> Depsite the tumultous protests below, the mountain parks in Hong Kong retain a quiet air of peace. This
-			scene
-			captures a couple walking their dog in the morning haze. </p>
-		<br>
-		<button onclick="getGreeting()">Greeting</button>
-		<br>
-		<ul id="r">
-	</div>
-	<ul id="greeting-container"></ul>
-	<br>
-	<b>Click here to get a random oxymoron:</b>
-	<button onclick="addRandomGreeting()">CLICK</button>
-	<div id="greeting-container"></div>
-
-    <form action="/text" method="POST">
-      <p>Enter a comment:</p>
-      <textarea name="text-input">type here</textarea>
-      <br>
-      <input type="submit" />
-    </form>
-	<b> Check me out here: </b>
-	<li><a href="https://github.com/gouins/software-product-sprint">GitHub</a> </li>
-	<li><a href="https://www.linkedin.com/in/samir-gouin-2013781a9/">LinkedIn</a></li>
-	<li><a href="https://www.instagram.com/gouins/">Instagram</a></li><br>
-	<p style="text-align:center;">Made by Samir</p>
-	</ul>
-	</div>
+	  <div id="content">
+		<h1 style="text-align:center;">My name is <div style="display:inline-block;" data-tooltip="images/profile copy.png">Samir</div>, welcome to my <a href="main.html">portfolio</a>.</h1>
 </body>
+</div>
 </html>

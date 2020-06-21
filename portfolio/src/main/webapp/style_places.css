@@ -1,0 +1,57 @@
+body {
+font-family: verdana;
+font-size: 17px;
+}
+
+// Presentational
+html, body { margin: 0; padding: 0; }
+html { height: 100%; } body { min-height: 100%; }
+
+body {
+  color: #FFF;
+  background-color: rgba(69, 173, 69, 0.842);
+  background-image: radial-gradient(circle, rgb(89, 216, 100) 0%, rgb(90, 177, 97) 70%, rgb(66, 138, 72) 100%);
+}
+
+ #map {
+   width: 100%;
+   height: 400px;
+   margin-left: auto;
+   margin-right: auto;
+   background-color: grey;
+ }
+
+ .credit {
+color: white;
+width: 1000px;
+font-family: verdana;
+font-size: 14px;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: lightgrey;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+ 

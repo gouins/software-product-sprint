@@ -43,7 +43,7 @@ public final class FindMeetingQuery {
         List<String> eventAttendees = new ArrayList<String>();
         eventAttendees.addAll(set);
 
-        // iterate attendes at event e to see if any of them are invited in the new meeting request
+// iterate attendes at event e to see if any of them are invited in the new meeting request
         for (String s : eventAttendees) {
         if (attendees.contains(s)) {
         System.out.println(e.getWhen());
@@ -62,10 +62,12 @@ public final class FindMeetingQuery {
 // start checking at time 0
     int start = 0;
     boolean finished = false;
+
 // cannot add a meeting longer than a day
     if (request.getDuration() > 1440){ return availableTimes;}
     if (busyTimes.size() > 0){
         for(TimeRange t : busyTimes){
+
 // the duration of the meeting slot must be at least as long as the meeting duration
         int timeDuration = (int) request.getDuration();
         TimeRange timeSpot = new TimeRange(start, timeDuration);

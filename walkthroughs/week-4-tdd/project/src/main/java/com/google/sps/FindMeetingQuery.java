@@ -53,43 +53,40 @@ public final class FindMeetingQuery {
         break;
         }
         }
-      }
+    }
 
 //sort for sequential access
-//Collections.sort(busyTimes);
-      Collections.sort(busyTimes, TimeRange.Comparators.ORDER_BY_START);
+    Collections.sort(busyTimes, TimeRange.Comparators.ORDER_BY_START);
 
 // check if the meeting duration fits when the attendees are not busy
 // start checking at time 0
-        int start = 0;
-        boolean finished = false;
+    int start = 0;
+    boolean finished = false;
 // cannot add a meeting longer than a day
-        if (request.getDuration() > 1440){
-            return availableTimes;
-        }
-        if (busyTimes.size() > 0){
+    if (request.getDuration() > 1440){ return availableTimes;}
+    if (busyTimes.size() > 0){
         for(TimeRange t : busyTimes){
 // the duration of the meeting slot must be at least as long as the meeting duration
         int timeDuration = (int) request.getDuration();
         TimeRange timeSpot = new TimeRange(start, timeDuration);
-        if (t.overlaps(timeSpot) == false){
-          while ((t.contains(timeDuration+start) == false) && (timeDuration+start < 1440)){
-            timeDuration++;
+            if (t.overlaps(timeSpot) == false){
+             while ((t.contains(timeDuration+start) == false) && (timeDuration+start < 1440)){
+                timeDuration++;
             }
         TimeRange meetingTime = new TimeRange(start, timeDuration);
         availableTimes.add(meetingTime);
         if (start+timeDuration == 1440){ finished = true; }
-        }
-        start = t.end(); 
-        }
     }
+    start = t.end(); 
+    }
+}
 
 // if the last duration doesn't already go to 1440
-        if ((start != 1440) && (finished == false)){
+    if ((start != 1440) && (finished == false)){
         boolean inclusive = false;
         TimeRange restOfDay = TimeRange.fromStartEnd(start, 1440, inclusive);
         availableTimes.add(restOfDay);
-        }
-    return availableTimes;
     }
+    return availableTimes;
+}
 }

@@ -10,12 +10,11 @@ margin-right: auto;
 width: 1000px;
 }
 
-credit {
+.credit {
 color: white;
 width: 1000px;
 font-family: verdana;
-font-size: 13px;
-text-align: center;
+font-size: 14px;
 margin-left: auto;
 margin-right: auto;
 }
@@ -26,7 +25,7 @@ font-size: 20px;
 margin-top: 20px;
 }
 
-#center {
+center {
 display: block;
 margin-left: auto;
 margin-right: auto;
@@ -39,60 +38,15 @@ font-weight: 900;
 font-size: 3.5em;
 }
 
-div p {
-display: inline-block;
-font-family: 'Montserrat';
-font-size: 30px;
-color: black;
-text-transform: none;
-margin: 0 20px;
-opacity: 0.0;
-animation: fadeIn ease 10s;
--webkit-animation: fadeIn ease 10s;
-}
-
-.fade-in {
-animation: fadeIn ease 3;
--webkit-animation: fadeIn ease 3;
--moz-animation: fadeIn ease 3;
--o-animation: fadeIn ease 3;
--ms-animation: fadeIn ease 3;
-}
-
-@keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
-
-@-moz-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
-
-@-webkit-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
-
-@-o-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
-
-@-ms-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}
-
 .ml2 .letter {
 display: inline-block;
 line-height: 1em;
 }
+
 .tab {
     display: inline-block;
     margin-left: 40px;
 }
-
 a:link {
   color: white;
   background-color: transparent;
@@ -133,6 +87,10 @@ html { height: 100%; } body { min-height: 100%; }
 
 body {
   color: #FFF;
-  background-color: #FD940A;
-  background-image: radial-gradient(circle, #F9A72B 0%, #FA9026 70%, #FB6C1F 100%);
+  background-color: rgb(44, 159, 253);
+  background-image: radial-gradient(circle, rgb(112, 169, 235) 0%, rgb(28, 147, 226) 70%, rgb(21, 104, 199) 100%);
+}
+
+li:not(:last-child) {
+    margin-bottom: 5px;
 }

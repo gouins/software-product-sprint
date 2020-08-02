@@ -20,25 +20,28 @@ import java.util.Comparator;
  * Class representing a span of time, enforcing properties (e.g. start comes before end) and
  * providing methods to make ranges easier to work with (e.g. {@code overlaps}).
  */
-public final class TimeRange {
+public final class TimeRange implements Comparable<TimeRange>{
   public static final int START_OF_DAY = getTimeInMinutes(0, 0);
   public static final int END_OF_DAY = getTimeInMinutes(23, 59);
-
   public static final TimeRange WHOLE_DAY = new TimeRange(0, 24 * 60);
 
-  /**
-   * A comparator for sorting ranges by their start time in ascending order.
-   */
-  public static final Comparator<TimeRange> ORDER_BY_START = new Comparator<TimeRange>() {
-    @Override
-    public int compare(TimeRange a, TimeRange b) {
-      return Long.compare(a.start, b.start);
+      @Override
+    public int compareTo(TimeRange o) {
+        return Comparators.ORDER_BY_START.compare(this, o);
     }
-  };
 
-  /**
-   * A comparator for sorting ranges by their end time in ascending order.
-   */
+
+   public static class Comparators {
+
+    // A comparator for sorting ranges by their start time in ascending order.
+       public static Comparator<TimeRange> ORDER_BY_START = new Comparator<TimeRange>() {
+           @Override
+           public int compare(TimeRange a, TimeRange b) {
+               return Long.compare(a.start, b.start);
+               }
+            };
+
+   // A comparator for sorting ranges by their end time in ascending order.
   public static final Comparator<TimeRange> ORDER_BY_END = new Comparator<TimeRange>() {
     @Override
     public int compare(TimeRange a, TimeRange b) {
@@ -46,10 +49,13 @@ public final class TimeRange {
     }
   };
 
+}
+
+ 
   private final int start;
   private final int duration;
 
-  private TimeRange(int start, int duration) {
+  public TimeRange(int start, int duration) {
     this.start = start;
     this.duration = duration;
   }

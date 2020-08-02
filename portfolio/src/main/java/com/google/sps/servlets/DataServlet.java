@@ -24,6 +24,8 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -58,8 +60,7 @@ public class DataServlet extends HttpServlet {
     taskEntity.setProperty("comment", text);  
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(taskEntity);
-    response.sendRedirect("/index.html");
-   // response.setContentType("text/html;");
+    response.sendRedirect("main.html");
   }
 
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {

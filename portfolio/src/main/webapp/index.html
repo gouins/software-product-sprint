@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <head>
 	<meta charset="UTF-8">
 	<title>Samir's Portfolio</title>
 	<link rel="stylesheet" href="style.css">
@@ -8,6 +9,21 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+     <style> 
+        body { 
+            animation: fadeInAnimation ease 3s; 
+            animation-iteration-count: 1; 
+            animation-fill-mode: forwards; 
+        } 
+        @keyframes fadeInAnimation { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+    </style> 
     <script>
     $(function() {
     $( document ).tooltip({
@@ -30,9 +46,10 @@
 <br>
 <br>
 <h1 class="ml2" style="text-align:center;">Hello</h1>
-<body>
-	  <div id="content">
-		<h1 style="text-align:center;">My name is <div style="display:inline-block;" data-tooltip="images/profile copy.png">Samir</div>, welcome to my <a href="main.html">portfolio</a>.</h1>
+<body class="m13">
+	<divid="content">
+	<h1 class="m13" style="text-align:center;">My name is <span style ="map" data-tooltip="images/profile copy.png">Samir</span>, welcome to my <a href="main.html">portfolio</a>.</h1>
 </body>
+</div>
 </div>
 </html>

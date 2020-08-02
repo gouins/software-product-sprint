@@ -33,17 +33,6 @@ margin-right: auto;
 width: 50%;
 }
 
-.ml2 {
-color: white;
-font-weight: 900;
-font-size: 3.5em;
-}
-
-.ml2 .letter {
-display: inline-block;
-line-height: 1em;
-}
-
 .tab {
     display: inline-block;
     margin-left: 40px;
@@ -95,7 +84,7 @@ body {
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  max-width: 900px;
   position: relative;
   margin: auto;
 }
